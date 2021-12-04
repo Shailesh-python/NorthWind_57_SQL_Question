@@ -123,4 +123,4 @@ from dbo.Customers c
 left join dbo.Orders o
 	on c.CustomerID = o.CustomerID
 where o.CustomerID is null
-	and o.EmployeeID=4
+	and o.EmployeeID<>4
