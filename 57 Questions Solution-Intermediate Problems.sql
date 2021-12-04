@@ -117,10 +117,10 @@ where o.CustomerID is null
 
 --31. Customers with no orders for EmployeeID 4
 select 
-	c.CustomerID as Customers_CustomerID,
-	o.CustomerID as Orders_CustomerID
-from dbo.Customers c
-left join dbo.Orders o
-	on c.CustomerID = o.CustomerID
-where o.CustomerID is null
-	and o.EmployeeID<>4
+	Customerid
+from dbo.customers 
+where customerid not in (
+			select 
+			customerid 
+			from dbo.orders 
+			where EmployeeID = 4)
