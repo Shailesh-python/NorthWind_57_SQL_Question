@@ -187,7 +187,7 @@ from dbo.Customers
 group by country,city
 ```
 
-> **22. Products that need reordering
+> **22. Products that need reordering**
 ```sql
 select
 	productid,
@@ -198,7 +198,7 @@ from dbo.Products
 where ReorderLevel>UnitsInStock
 ```
 
-> **23. Products that need reordering, continued
+> **23. Products that need reordering, continued**
 ```sql
 select
 	productid,
@@ -212,7 +212,7 @@ where UnitsInStock + UnitsOnOrder <= ReorderLevel
 	and Discontinued=0
 ```
 
-> **24. Customer list by region
+> **24. Customer list by region**
 ```sql
 with cte as
 (
@@ -229,7 +229,7 @@ with cte as
 		Region from cte order by forsort,region,customerid
 ```
 
-> **25. High freight charges
+> **25. High freight charges**
 ```sql
 select 
 	top 3
@@ -240,7 +240,7 @@ group by ShipCountry
 order by AverageFreight desc
 ```
 
-> **26. High freight charges - 2015
+> **26. High freight charges - 2015**
 ```sql
 select 
 	top 3
@@ -252,7 +252,7 @@ group by ShipCountry
 order by AverageFreight desc
 ```
 
-> **28. High freight charges - last year
+> **28. High freight charges - last year**
 ```sql
 declare @max_date as date
 set @max_date = (select cast(max(orderdate) as date) from orders)
@@ -266,7 +266,7 @@ group by ShipCountry
 order by AverageFreight desc
 ```
 
-> **29. Inventory list 
+> **29. Inventory list**
 ```sql
 select 
 	o.EmployeeID,
@@ -285,7 +285,7 @@ inner join dbo.Products p
 	on od.ProductID = p.ProductID
 ```
 
-> **30. Customers with no orders
+> **30. Customers with no orders**
 ```sql
 select 
 	c.CustomerID as Customers_CustomerID,
@@ -296,7 +296,7 @@ left join dbo.Orders o
 where o.CustomerID is null
 ```
 
-> **31. Customers with no orders for EmployeeID 4
+> **31. Customers with no orders for EmployeeID 4**
 ```sql
 select 
 	Customerid
